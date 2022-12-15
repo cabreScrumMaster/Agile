@@ -46,3 +46,18 @@ def isUser(username):
     f.close()
     # Check if the user exists in the database
     return username in users
+
+# Return True if the user is connected, False otherwise
+def connect(username, password):
+    # Load the database of users from the JSON file
+    with open('data/users.json', 'r') as f:
+        users = json.load(f)
+    f.close()
+    #Write the user as connected in the database
+    if (username in users) and users[username]["password"] == password:
+        users[username]["connected"] = True
+    # Save the updated database to the JSON file
+    with open('data/users.json', 'w') as f:
+        json.dump(users, f)
+    f.close()
+    return username in users and users[username]["password"] == password
