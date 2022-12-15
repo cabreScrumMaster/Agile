@@ -1,5 +1,6 @@
 import array
 import sys
+from typing import List
 sys.path.append('.')
 sys.path.append('../')
 
@@ -8,9 +9,10 @@ from app.Player import Player
 
 class Tournament  : 
 
-    listPlayers : Player
-    listMatch : Match
-
-    def __init__(self, listPlayer = [] ):
-        self.listPlayers = listPlayer
+    def __init__(self):
+        self.listPlayers = []
         self.listMatch = []
+    
+    
+    def add_player_to_tournament(self, player):
+        self.listPlayers.append(player)

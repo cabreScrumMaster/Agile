@@ -1,4 +1,5 @@
 import sys
+from typing import List
 sys.path.append('.')
 sys.path.append('../')
 import unittest
@@ -16,6 +17,16 @@ class TournamentTest(unittest.TestCase):
         p1 = p("Jean")
         p2 = p("Jack")
         listPlayers = [p1, p2]
-        test = t(listPlayers)
+        test = t()
+        test.add_player_to_tournament(p1)
+        test.add_player_to_tournament(p2)
         self.assertEqual(test.listPlayers, listPlayers)
         self.assertEqual(len(test.listPlayers), 2)
+
+    def test_add_player_to_tournament(self):
+        test_p = p("Johnny")
+        test_tournament = t()
+
+        test_tournament.add_player_to_tournament(test_p)
+        for (i, j) in zip(test_tournament.listPlayers, [test_p]):
+            self.assertEqual(i.nom, j.nom)
