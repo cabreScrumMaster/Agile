@@ -1,3 +1,4 @@
+import array
 import sys
 sys.path.append('.')
 sys.path.append('../')
@@ -10,6 +11,6 @@ class Tournament  :
     listPlayers : Player
     listMatch : Match
 
-    def __init__(self):
-        self.listPlayers = []
+    def __init__(self, listPlayer = [] ):
+        self.listPlayers = listPlayer
         self.listMatch = []
