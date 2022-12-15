@@ -30,3 +30,11 @@ class TournamentTest(unittest.TestCase):
         test_tournament.add_player_to_tournament(test_p)
         for (i, j) in zip(test_tournament.listPlayers, [test_p]):
             self.assertEqual(i.nom, j.nom)
+    
+    def test_delete_tournament(self):
+        test_p = p("Johnny")
+        test_tournament = t()
+        test_tournament.add_player_to_tournament(test_p)
+        test_tournament.destroy()
+        self.assertEqual(test_tournament.listMatch, None)
+        self.assertEqual(test_tournament.listPlayers, None)
