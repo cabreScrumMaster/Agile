@@ -1,7 +1,7 @@
 # fichier de test des US liées à l'utilisateur
 
 import pytest
-from app.user import createUser, getUser, isUser
+from app.user import *
 
 
 def test_admin():
@@ -28,3 +28,12 @@ def test_organisateur():
 def test_fakeUser():
     assert isUser("toto") == False
     assert getUser("toto") == None
+
+def test_userDeleted():
+    createUser("user","user123","joueur")
+    assert isUser("user") == True
+    assert getUser("user") != None
+    deleteUser("user")
+    assert isUser("user") == False
+    assert getUser("user") == None
+    deleteUser("user123")
