@@ -20,8 +20,9 @@ def test_joueur():
 
 def test_organisateur():
     createUser("org","org123","organisateur")
+    user = getUser("org")
     assert isUser("org") == True
-    assert "org" == getUser("org")["username"]
+    assert "org" == user["username"]
     assert "org123" == getUser("org")["password"]
     assert "organisateur" == getUser("org")["role"]
 

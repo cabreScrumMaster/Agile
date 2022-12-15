@@ -64,7 +64,7 @@ def connect(username, password):
 
 
 def deleteUser(username):
-        # Load the database of users from the JSON file
+    # Load the database of users from the JSON file
     with open('data/users.json', 'r') as f:
         users = json.load(f)
     f.close()
