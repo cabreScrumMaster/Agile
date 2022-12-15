@@ -46,3 +46,17 @@ def isUser(username):
     f.close()
     # Check if the user exists in the database
     return username in users
+
+def deleteUser(username):
+    # Load the database of users from the JSON file
+    with open('data/users.json', 'r') as f:
+        users = json.load(f)
+    f.close()
+    # Check if the user exists in the database
+    if username in users:
+        # If the user exists, delete them from the database
+        del users[username]
+        # Save the updated database to the JSON file
+        with open('data/users.json', 'w') as f:
+            json.dump(users, f)
+        f.close()
