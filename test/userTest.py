@@ -44,3 +44,11 @@ def test_userDeleted():
     assert isUser("user") == False
     assert getUser("user") == None
     deleteUser("user123")
+
+def test_disconnect():
+    createUser("user4","user123","joueur")
+    assert isUser("user4") == True
+    assert connect("user4","user123") == True
+    assert getUser("user4")["connected"] == True
+    disconnect("user4")
+    assert getUser("user4")["connected"] == False
