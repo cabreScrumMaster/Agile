@@ -1,0 +1,1 @@
+{"admin": {"username": "admin", "password": "admin123", "role": "admin", "connected": true}, "org": {"username": "org", "password": "org123", "role": "organisateur", "connected": true}, "user4": {"username": "user4", "password": "user123", "role": "joueur", "connected": false}}
